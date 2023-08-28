@@ -1,8 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { cartstore } from '../App';
+import { useContext } from 'react';
 //import'./About.module.css';
 const About = () => {
+  const[cart,setCart,showcart,setShowcart,login,setLogin]=useContext(cartstore);
   return (
     <div>
+      {console.log(login)}
       <h1 style={{color:'white',background:'gray',padding:'20px',fontSize:'50px',fontFamily:'revert',width:'100%'}}><center>The Generics</center></h1>
       <h2 style={{textAlign:'center'}}>About</h2>
       <p>

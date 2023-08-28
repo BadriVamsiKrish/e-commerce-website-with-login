@@ -1,7 +1,11 @@
 import React from 'react'
 //import {Card,Button} from 'react-bootstrap';
 import Card from '../layout/Cardelement';
+import { Button } from 'react-bootstrap';
+import { useContext } from 'react';
+import { cartstore } from '../App';
 const Store = () => {
+  const[cart,setCart,showcart,setShowcart,login,setLogin]=useContext(cartstore);
   const productsArr = [
 
     {
@@ -47,7 +51,7 @@ const Store = () => {
     ]
   return (<div>
     <h1 style={{color:'white',background:'gray',padding:'20px',fontSize:'50px',fontFamily:'revert'}}><center>The Generics</center></h1>
-    <h2 style={{textAlign:'center'}}>Store</h2>
+    <h2 style={{textAlign:'center'}}>Store <Button variant='success' onClick={(event)=>{setLogin(false)}}>logout</Button></h2>
           <div style={{display:'grid',
             gridTemplateColumns:'repeat(2, 1fr)',
             gap:'20px'}}>

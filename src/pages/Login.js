@@ -6,13 +6,11 @@ const Login = () => {const history=useNavigate();
   const emailInputRef=useRef();
 
   const passwordInputRef= useRef();
-
-
   const[cart,setCart,showcart,setShowcart,login,setLogin]=useContext(cartstore);
   const [isLogin, setIsLogin] = useState(true);
 
   const setLog = () => {
-    setLogin(!login);
+    setLogin(true);
   }
 
   const switchAuthModeHandler = () => {
@@ -47,6 +45,7 @@ const Login = () => {const history=useNavigate();
         }
       }).then((res)=>{
         if(res.ok){
+          setTimeout(setLogin(false),10000);
           return res.json();
         }
         else{
@@ -56,7 +55,7 @@ const Login = () => {const history=useNavigate();
           })
         }
 
-  }).then(data=>{console.log(data);setLog();redirectToAnotherRoute();}
+  }).then(data=>{console.log(data);setLog();redirectToAnotherRoute()}
   )
   .catch(err=>{
     alert(err.message);

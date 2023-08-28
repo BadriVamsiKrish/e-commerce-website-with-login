@@ -1,4 +1,4 @@
-import React, { createContext, useState ,useContext} from 'react';
+import React, { createContext, useState,useContext} from 'react';
 import './App.css';
 import { BrowserRouter,Route,Routes } from 'react-router-dom';
 import Navigation from './layout/Navigation';
@@ -10,6 +10,7 @@ import Contact from './pages/Contact';
 import Modal from './cartstore/Modal';
 export const cartstore=createContext();
 const App  = () => {
+  //const intiallog=localStorage.getItem('login');
   const[cart,setCart]=useState([]);
   const[showcart,setShowcart]=useState(false);
   const[login,setLogin]=useState(false);
@@ -22,8 +23,10 @@ const App  = () => {
       </div>
     
         <Routes>
-          <Route path='/' Component={Home}/>
-          <Route path='/store' Component={Store}/>
+          
+          <Route path='/' exact Component={Home}/>
+          {!(login) &&<Route path='/store' Component={Login}/>}
+          {login &&<Route path='/store' Component={Store}/>}
           <Route path='/about' Component={About}/>
           <Route path='/login' Component={Login}/>
           <Route path='/contact' Component={Contact}/>

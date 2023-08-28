@@ -1,6 +1,8 @@
 import ToursList from './TourList';
 import classes from './TourList.module.css';
-
+import { cartstore } from '../App';
+import { useContext } from 'react';
+import { Button } from 'react-bootstrap';
 const list = [
     {
         date: 'JUL 16',
@@ -35,6 +37,7 @@ const list = [
 ]
 
 const HomePage = () => {
+    const[cart,setCart,showcart,setShowcart,login,setLogin]=useContext(cartstore);
 
     const tourSchedule = list.map((ele) => (
         <ToursList 
@@ -46,7 +49,7 @@ const HomePage = () => {
     ))
 
     return (
-        <>
+        <>{console.log(login)}
             <h1 style={{color:'white',background:'gray',padding:'20px',fontSize:'50px',fontFamily:'revert'}}><center>The Generics</center></h1>
             <h2 style={{textAlign:'center'}}>Tours</h2>
             <ul className={classes.tours}>
