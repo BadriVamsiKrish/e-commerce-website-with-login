@@ -10,10 +10,11 @@ import Contact from './pages/Contact';
 import Modal from './cartstore/Modal';
 export const cartstore=createContext();
 const App  = () => {
-  //const intiallog=localStorage.getItem('login');
+  const storedValue = localStorage.getItem('login');
+const yourVariable = storedValue === null ? false : true;
   const[cart,setCart]=useState([]);
   const[showcart,setShowcart]=useState(false);
-  const[login,setLogin]=useState(false);
+  const[login,setLogin]=useState(yourVariable);
   return (
     <cartstore.Provider value={[cart,setCart,showcart,setShowcart,login,setLogin]}>
     <div className='App'>

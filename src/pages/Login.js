@@ -12,6 +12,7 @@ const Login = () => {
 
   const setLog = () => {
     setLogin(true);
+    localStorage.setItem('login',true);
     redirectToAnotherRoute();
   }
 
@@ -57,7 +58,7 @@ const Login = () => {
           })
         }
 
-  }).then(data=>{console.log(data);setLog();}
+  }).then(data=>{console.log(data);setLog()}
   )
   .catch(err=>{
     alert(err.message);
