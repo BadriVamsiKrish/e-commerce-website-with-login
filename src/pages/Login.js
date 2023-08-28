@@ -2,7 +2,8 @@ import { useState, useRef ,useContext} from 'react';
 import { cartstore } from '../App';
 import classes from './Authform.module.css';
 import { useNavigate } from 'react-router-dom';
-const Login = () => {const history=useNavigate();
+const Login = () => {
+  const story=useNavigate();
   const emailInputRef=useRef();
 
   const passwordInputRef= useRef();
@@ -11,13 +12,14 @@ const Login = () => {const history=useNavigate();
 
   const setLog = () => {
     setLogin(true);
+    redirectToAnotherRoute();
   }
 
   const switchAuthModeHandler = () => {
     setIsLogin((prevState) => !prevState);
   };
   const redirectToAnotherRoute = () => {
-    history('/store');
+    story('/store');
   };
 
   const submitHandler = (event) =>{
@@ -55,7 +57,7 @@ const Login = () => {const history=useNavigate();
           })
         }
 
-  }).then(data=>{console.log(data);setLog();redirectToAnotherRoute()}
+  }).then(data=>{console.log(data);setLog();}
   )
   .catch(err=>{
     alert(err.message);
