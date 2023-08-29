@@ -14,6 +14,7 @@ const Login = () => {
     setLogin(true);
     localStorage.setItem('login',true);
     redirectToAnotherRoute();
+    setTimeout(()=>{setLogin(null);localStorage.removeItem('login')},30000);
   }
 
   const switchAuthModeHandler = () => {
